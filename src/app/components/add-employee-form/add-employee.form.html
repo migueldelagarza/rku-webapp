@@ -1,0 +1,32 @@
+<form [formGroup]="deliveryForm" (submit)="submitDelivery()">
+  <mat-form-field>
+    <mat-label>Número</mat-label>
+    <input matInput name="employeeNumber" formControlName="account">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput name="name" formControlName="name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Rol" formControlName="role">
+      <mat-option *ngFor="let role of ['chofer', 'cargador', 'auxiliar']" [value]="role">
+        {{role}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="mes" formControlName="month">
+      <mat-option *ngFor="let month of ['2023-07', '2023-06', '2023-05']" [value]="month">
+        {{month}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label name="deliveries" min="0">Cantidad de entregas</mat-label>
+    <input matInput type="number" formControlName="deliveries">
+  </mat-form-field>
+  <div class="buttons">
+    <button type="submit" mat-raised-button color="accent" [disabled]="deliveryForm.invalid">GUARDAR</button>
+    <button type="submit" mat-button color="default">CANCELAR</button>
+  </div>
+</form>
