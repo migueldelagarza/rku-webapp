@@ -33,4 +33,15 @@ export class EmployeesService {
   addEmployee(employee: Employee): Observable<any> {
     return this.http.post<Observable<any>>(this.employeesURL, employee);
   }
+
+  /**
+   * Agrega entregas mensuales por empleado
+   * @param employee datos del empleado
+   * @param month mes a registrar 'YYYY-MM'
+   * @param deliveries cantidad de entregas
+   * @returns {Observable}
+   */
+  addDeliveries(employee: Employee, month: string, deliveries: number): Observable<any> {
+    return this.http.post(this.employeesURL + '/deliveries', {employee, month, deliveries})
+  }
 }
