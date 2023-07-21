@@ -42,6 +42,7 @@ export class AddEmployeeForm {
     this._employees.addDeliveries(employee, month, deliveries).subscribe( result => {
       console.log(result)
       this.deliveryForm.reset();
+      alert(result.message)
     })
   }
 }

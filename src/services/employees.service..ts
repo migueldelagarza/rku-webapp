@@ -42,6 +42,10 @@ export class EmployeesService {
    * @returns {Observable}
    */
   addDeliveries(employee: Employee, month: string, deliveries: number): Observable<any> {
-    return this.http.post(this.employeesURL + '/deliveries', {employee, month, deliveries})
+    return this.http.post(this.employeesURL + 'deliveries', {employee, month, deliveries}, {responseType: 'text'})
+  }
+
+  getDeliveries(account: string, month: string) {
+    return this.http.get(this.employeesURL + `delivery/${account}/${month}`)
   }
 }
